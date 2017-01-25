@@ -1,0 +1,49 @@
+$button-bg-color: $color-white;
+$button-bg-color-hover: $color-verydarkgrey;
+$button-text-color: $color-verydarkgrey;
+
+%button {
+	@include clear-appearance;
+	font-weight: $body-font-weight-bold;
+	display: inline-block;
+	background: transparent;
+	color: $button-text-color;
+	padding: 9px 17px;
+	border: 2px solid $button-text-color;
+	text-decoration: none;
+
+	&:hover, &:focus, &:active {
+		color: $button-bg-color;
+		background: $button-bg-color-hover;
+		transition-duration: 0.3s;
+		text-decoration: none;
+	}
+
+	&[disabled] {
+		pointer-events: none;
+	}
+}
+
+.button, form input[type='submit'] {
+	@extend %button;
+}
+
+.button-light {
+	@extend %button;
+	color: $button-bg-color;
+	border-color: $button-bg-color;
+	&:hover, &:focus, &:active {
+		background: $button-bg-color;
+		color: $button-bg-color-hover;
+	}
+}
+
+.button-orange {
+	@extend %button;
+	color: $color-provider-secondary;
+	border-color: $color-provider-secondary;
+	&:hover, &:focus, &:active {
+		background: $color-provider-secondary;
+		color: $button-bg-color;
+	}
+}

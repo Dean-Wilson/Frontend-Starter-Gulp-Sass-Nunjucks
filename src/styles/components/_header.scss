@@ -1,0 +1,34 @@
+//Header and Banner except menu (see menu.scss)
+//Header
+#header {
+	background: $color-primary;
+	padding: 15px 0 0;
+}
+@media #{$medium-up} {
+	.provider-area {
+		#masthead {
+			padding-bottom: 15px;
+		}
+	}	
+}
+@media #{$large-down} {
+	.site-title {
+		padding-left: 15px;
+	}
+	.main-navigation.navbar-right {
+		padding-right: 15px;
+	}
+}
+@media #{$medium-down} { //the hamburger button has its own padding
+	#header {
+		padding-right: 0;
+	}
+}
+@media #{$extra-large-up} { //more padding on large screens
+	.site-title {
+		padding-left: 25px;
+	}
+	.main-navigation.navbar-right {
+		padding-right: 25px;
+	}
+}

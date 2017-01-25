@@ -1,0 +1,62 @@
+@mixin background-cover {
+	background: {
+		size: cover;
+		position: center center;
+		repeat: no-repeat;
+	}
+}
+
+@mixin svg-background($name, $w:0, $h:0, $size:false){
+	$image-svg: "#{$name}.svg";
+	$image-png: "#{$name}.png";
+
+	@if($size == 100%) {
+		width: $w;
+		height: $h;
+	}
+
+	background: {
+		repeat: no-repeat;
+		image: image-url($image-png);
+		image: image-url($image-svg), none;
+		@if($size == 100%) {
+			size: $size $size;
+		}
+		@else if($size){
+			size: $size;
+		}
+	}
+}
+
+@mixin hidpi-background($name, $w:0, $h:0, $size:true, $extension:"png") {
+	$extension: "png";
+	$suffix: "@2x";
+
+	$image: "#{$name}.#{$extension}";
+	$image-2x: "#{$name}#{$suffix}.#{$extension}";
+
+	@if($size == 100%) {
+		width: $w;
+		height: $h;
+	}
+
+	background: {
+		image: image-url($image);
+		repeat: no-repeat;
+		@if($size == 100%) {
+			size: $size $size;
+		}
+		@else if($size) {
+			size: $w $h;
+		}
+	}
+	@include hidpi(1.5) {
+		background-image: image-url($image-2x);
+	}
+}
+
+@mixin sectionbg($color:$color-sectionbg) {
+	background: $color;
+	padding: 40px 0;
+}
+

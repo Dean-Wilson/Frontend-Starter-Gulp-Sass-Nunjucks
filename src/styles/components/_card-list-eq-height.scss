@@ -1,0 +1,57 @@
+%compact {
+  a, h4 {
+    font-weight: 700;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+  .provider-detail a {
+    word-break: normal;
+  }
+  p {
+    margin: 0.8em 0;
+    display: table;
+    > span {
+      font-weight: 700;
+      display: table-cell;
+      padding-right: 5px;
+    }
+  }
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    display: table;
+    .contact-type {
+      display: table-cell;
+      font-weight: 700;
+      padding-right: 10px;
+      min-width: 71px;
+    }
+    a {
+      display: table-cell;
+    }
+  }
+  .address {
+    p {
+      margin: 0;
+      &:last-child {
+        margin-bottom: 0.5em;
+      }
+    }
+  }  
+}
+
+.cards-wrap {
+  margin-top: 20px;
+  .card {
+    @extend %compact;
+    box-shadow: 3px 3px 12px 0px $color-sectionbg;
+    padding: 15px;
+    margin-bottom: 20px;
+    height: 100%;
+  } 
+}
+
+#map .card-content {
+  @extend %compact;
+}

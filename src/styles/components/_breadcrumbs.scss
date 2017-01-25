@@ -1,0 +1,21 @@
+.crumbs-wrap {
+	padding: 45px 0;
+	border-bottom: 1px solid $color-divider;
+}
+.crumbs {
+	font-size: 13px;
+	a {
+		font-size: 13px;
+		color: $color-textdefault;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+			color: $color-primary;
+		}	
+	}
+	span.glyphicon-chevron-right {
+		font-size: 10px;
+		margin-right: 5px;
+		display: inline-block;
+	}
+}

@@ -1,0 +1,140 @@
+/**
+ * Grid - http://susy.oddbird.net/demos/
+ */
+
+$tiny-breakpoint: 600px; 
+$small-breakpoint: 768px; //(767 down = bootstrap extra-small)
+$medium-breakpoint: 992px; //(992 up = bootstrap md)
+$extra-large-breakpoint: 1200px;
+
+$tiny-range: (0, $tiny-breakpoint - 1);
+$small-range: (0, $small-breakpoint - 1);
+$medium-range: ($small-breakpoint, $medium-breakpoint - 1);
+$large-range: ($medium-breakpoint, $extra-large-breakpoint - 1);
+$extra-large-range: ($extra-large-breakpoint, 9999px);
+
+$outer-gutter-small: 20px;
+$outer-gutter-medium: 25px;
+$outer-gutter-large: 30px;
+$outer-gutter: $outer-gutter-large;
+
+$container-width: 1170px;
+
+$row-width: $container-width + $outer-gutter*2;
+
+$content-width: 1170px;
+
+//margins / padding values
+$column-gutter-small: 15px;
+$column-gutter-medium: 25px;
+$column-gutter-large: 55px;
+$column-gutter: $column-gutter-large;
+$gutter: $column-gutter;
+
+$margin-smaller: $column-gutter-small;
+$margin-default: $column-gutter-medium;
+$margin-large: $column-gutter-large;
+
+$ms-extra-small-max: nth($tiny-range, 2); //600
+$sq-small-max: nth($tiny-range, 1);
+$mq-small-min: nth($small-range, 1);
+$mq-small-max: nth($small-range, 2);
+$mq-medium-min: nth($medium-range, 1);
+$mq-medium-max: nth($medium-range, 2);
+$mq-large-min: nth($large-range, 1);
+$mq-large-max: nth($large-range, 2);
+$mq-extra-large-min: nth($extra-large-range, 1);
+$mq-extra-large-max: nth($extra-large-range, 2);
+
+$screen: "only screen";
+$extra-small-only: "#{$screen} and (max-width: #{$ms-extra-small-max})"; //TINY only (599px and down)
+$small-down: "#{$screen} and (max-width:#{$mq-small-max})"; //bootstrap extra small 767 and down
+$small-up: "#{$screen} and (min-width:#{$mq-medium-min})"; //above bootstrap extra small (768 and up)
+$small-only: "#{$screen} and (max-width: #{$mq-small-max})"; //bootstrap small AND down (max-width: 768px)
+$medium-up: "#{$screen} and (min-width:#{$medium-breakpoint})"; //min-width 992px
+$medium-down: "#{$screen} and (max-width:#{$mq-medium-max})"; //max-width: 991px
+//$medium-only: "#{$screen} and (min-width:#{$mq-medium-min}) and (max-width:#{$mq-medium-max})";
+$large-down: "#{$screen} and (max-width:#{$mq-large-max})"; //1199 and down
+$large-only: "#{$screen} and (min-width:#{$mq-large-min}) and (max-width:#{$mq-large-max})"; //992 to 1199
+$extra-large-up: "#{$screen} and (min-width:#{$mq-extra-large-min})"; //min width 1200px
+//$extra-large-only: "#{$screen} and (min-width:#{$mq-extra-large-min}) and (max-width:#{$mq-extra-large-max})";
+
+// $susy: (
+// 	gutter-position: inside,
+// 	columns: 12,
+// 	gutters: 0,
+// 	container: $row-width,
+// 	global-box-sizing: border-box
+// );
+
+/**
+ * Colours
+ */
+
+//public area
+$color-primary: $color-orange;
+$color-secondary: $color-black;
+
+//provider area
+$color-provider-primary: $color-black;
+$color-provider-secondary: $color-orange;
+
+//Utility colors
+$color-error: $color-red;
+$color-body-bg: $color-white;
+$color-textdefault: $color-darkgrey;
+$color-fadedtext: $color-lightergrey;
+$color-border: $color-primary;
+$color-sectionbg: $color-lightgrey;
+$color-lightbg: $color-verylightgrey;
+$color-divider: $color-lightgrey;
+$color-crumbs: $color-midgrey;
+$color-dark-bg: $color-verydarkgrey;
+$color-verydark-bg: $color-black;
+
+$body-font-color: $color-textdefault;
+$heading-font-color: $color-evendarkergrey;
+$color-footertext: $color-altmidgrey;
+/**
+ * Typography - used in global > components > typography
+ */
+$body-font-size: 14px;
+$body-font-family: 'Helvetica Neue', sans-serif;
+//$body-font-weight-light: 400;
+$body-font-weight-normal:400;
+$body-font-weight-semibold: 500;
+$body-font-weight-bold: 700;
+$body-font-weight-extrabold: 800;
+$body-font-weight: $body-font-weight-normal;
+
+$topheading-font-weight: $body-font-weight-extrabold;
+$subheading-font-weight: $body-font-weight-bold;
+
+$heading-font-family: 'Helvetica Neue', sans-serif;
+
+
+/**
+ * Layout
+ */
+
+
+
+/**
+ * Animation
+ */
+
+$global-ease: cubic-bezier(0.08, 0.59, 0.29, 0.99);
+
+/**
+ * Misc
+ */
+
+$global-radius: 4px;
+
+/**
+ * Utilities
+ */
+
+$empty: "\0020";
+$bullet: "\2022";
+$cross: "\2715";

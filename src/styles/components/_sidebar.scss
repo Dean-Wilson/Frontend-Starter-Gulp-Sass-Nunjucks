@@ -1,0 +1,87 @@
+.widget {
+	textarea {
+		height: 80px;
+	}
+	.textwidget {
+		a.button {
+			width: 100%;
+			text-align: center;
+		}
+	}
+}
+
+//buddypress widget
+.buddypress.widget {
+	border-bottom: none;
+	margin-bottom: 0;
+	#swa-whats-new-post-in-box, .swa-pagination, .swa-activity-list .swa-activity-header .activity-time-since {
+		display: none;
+	}
+	#whats-new-submit {
+		float: right;
+		margin: 10px 0 20px;;
+	}
+	.swa-wrap {
+		form {
+			overflow: hidden;
+		}
+	}
+	.swa-activity-list .swa-activity-header {
+		p {
+			visibility: hidden;
+		}
+		p > a {
+			visibility: visible;
+			display: inline-block;
+		}
+		p > a:first-child:after {
+			content: "posted an update";
+			clear: both;
+			font-weight: 400;
+			color: $color-fadedtext;
+			display: block;
+		}
+		a:first-child, span.highlight {
+			background: none;
+			border: none;
+			color: $color-textdefault;
+			font-weight: $subheading-font-weight;
+			width: auto;
+			margin: 0;
+			padding: 0;
+		}
+		a:first-child:hover {
+			background: none !important;
+			color: $color-textdefault !important;
+			font-weight: $subheading-font-weight;
+		}
+	}
+	
+	.swa-activity-list .swa-activity-content .swa-activity-inner, .swa-activity-list .swa-activity-content blockquote {
+		width: 100%;
+	}
+	ul.swa-activity-list > li:first-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+}
+@media #{$medium-up} {
+
+}
+@media #{$medium-down} { 
+	.resources-wrap {
+		display: flex;
+		flex-direction: column;
+		.left-sidebar-menu {
+			order: 2;
+		}
+		.resources {
+			order: 1;
+			width: 100%;
+		}
+	}
+	.widget_nav_menu {
+		display: none;
+	}
+}
+

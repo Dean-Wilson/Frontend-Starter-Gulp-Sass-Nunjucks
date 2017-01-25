@@ -1,0 +1,78 @@
+body, html {
+	width: 100%;
+}
+
+html {
+
+}
+
+body {
+	background: {
+		color: $color-body-bg;
+	}
+	color: $body-font-color;
+}
+
+@media #{$medium-down} { 
+	.main {
+		text-align: center;
+	}
+}
+.content {
+	max-width: $content-width;
+	margin: 0 auto;
+	padding: 0 10px;
+	@media #{$extra-large-up} {
+		padding: 0;
+	}
+}
+#page-title-bar {
+	clear: both;
+}
+section, .section {
+	padding: $column-gutter-medium 0;
+}
+.section.container {
+	padding: $column-gutter-medium 10px;	
+}
+.section-sm {
+	padding-top: $column-gutter-small;
+	padding-bottom: $column-gutter-small;
+}
+.container > .container { 
+	padding: 0;
+}
+@media #{$medium-up} { 
+	.narrowed-container {
+		width: 800px;
+	}
+}
+@media #{$extra-large-up} { 
+	.narrowed-container {
+		width: 1000px;
+	}
+}
+@media #{$medium-up} { 
+	section, .section {
+		padding-top: $margin-large;
+		padding-bottom: $margin-large;
+	}
+	.section.container {
+		padding: $margin-large 15px;	
+	}
+	.section-sm {
+		padding-top: $margin-default;
+		padding-bottom: $margin-default;
+	}
+}
+
+@media #{$small-down} { 
+	[class*='col-md'] {
+		margin-top: 20px;
+		padding: 0 25px;
+	}
+	.row .col-md-6:first-child,
+	.row .col-md-4:first-child {
+		margin-top: 0;
+	}
+}

@@ -1,0 +1,33 @@
+/* Equal height Bootstrap columns - from https://trello.com/c/AE4tq681/73-css-equal-height-columns */
+.row.equal-heights {
+  display: flex;
+  flex-wrap: wrap; 
+    &> [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+  }
+}
+
+.highlight {
+	background: #FFFF00;
+
+}
+
+.quote {
+  background: $color-sectionbg;
+  border-left: 5px solid $color-primary;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  &:before {
+    color: $color-primary;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  p {
+    display: inline;
+  }
+}

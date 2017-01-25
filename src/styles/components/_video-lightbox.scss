@@ -1,0 +1,43 @@
+.video-thumbnail-wrap {
+	height: 250px;
+	border-radius: 3px;
+	//centered play button - background image set dynamically in video-lightbox.php
+	a {	
+		display: block;
+		height: 250px;
+		width: 100%;
+		position: relative;
+		img {
+			width: 65px;
+			height: 65px;
+			position: absolute;
+			margin: auto;
+  			top: 0; left: 0; bottom: 0; right: 0;
+		}
+	}
+}
+/* Lity Overrides */
+.lity {
+	background: rgba(0,0,0,0.65);
+}
+@media #{$medium-down} {
+	.video-thumbnail-wrap {
+		margin-bottom: 20px;		
+		background-position: bottom;
+	}
+}
+
+@media #{$small-down} {
+	.video-thumbnail-wrap {
+		background-position: top;
+		height: 200px;
+		a {
+			height: 200px;
+		}
+	}
+	.video-detail-wrap {
+		a.button {
+			display: none;
+		}
+	}
+}

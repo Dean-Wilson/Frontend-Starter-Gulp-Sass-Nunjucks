@@ -1,0 +1,131 @@
+body {
+	font: {
+		family: $body-font-family;
+		weight: $body-font-weight;
+		size: 14px;
+	}
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font: {
+		family: $heading-font-family;
+	}
+	color: $heading-font-color;
+	line-height: 1.4;
+	margin: 1.5em 0 1em;
+	&:first-child {
+		margin-top: 0;
+	}
+	@media #{$small-only} {
+		line-height: 1.2;
+	}
+}
+
+h1, h2, h3, .h1, .h2, .h3 {
+	font: {
+		weight: $topheading-font-weight;
+	}
+	color: $heading-font-color;
+	margin-bottom: $margin-default;
+}
+
+h4, h5, h6 {
+	font: {
+		weight: $subheading-font-weight;
+	}	
+	margin-bottom: $margin-smaller;
+}
+
+h1, h2.h1 { 
+	font-size: 46px; 
+}
+h2, .h2 { 
+	font-size: 30px; 
+	line-height: 0.9em;
+}
+h3, h2.h3, .h3 { 
+	font-size: 22px; 
+	margin-bottom: 15px;
+}
+h4,  h2.h4 { 
+	font-size: 20px; 
+}
+h5 { 
+	font-size: 16px; 
+	color: $color-primary;
+}
+h4.h5 { 
+	font-size: 16px; 
+}
+h6 { font-size: $body-font-size; }
+
+p, li {
+	font-size: $body-font-size;
+	line-height: 1.5;
+}
+
+p {
+	margin: 1em 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+strong {
+	font-weight: $body-font-weight-bold;
+}
+
+a, .bp_activity .activity-inner a {
+	color: $color-primary;
+	text-decoration: underline;
+	font-weight: $body-font-weight-bold;
+	&:hover {
+		color: darken($color-primary, 20%);
+	}
+	p {
+
+	}
+}
+
+//Lists
+ul, ol {
+	li {
+		padding-bottom: 7px;
+		ul, ol {
+			padding-top: 7px;
+		}
+	}
+}
+
+
+
+@media #{$small-down} {
+	//TODO: make above smaller (for mobile) then increase to the design sizes here
+	h1, h2.h1 { font-size: 36px; }
+	h2 { font-size: 24px; }
+	h3 { font-size: 22px; }
+	h4 { font-size: 20px; }
+	h5 { font-size: 18px; }
+	p { font-size: $body-font-size; }
+}
+
+//utilities
+a.reset {
+	color: $color-textdefault;
+	text-decoration: none;
+	font-weight: $body-font-weight-normal;
+	&:hover {
+		color: $color-textdefault;
+	}
+}
+
+//revert bold links in these areas:
+.bp_activity a, .crumbs a, .item-list-tabs a {
+	font-weight: $body-font-weight-normal;
+}

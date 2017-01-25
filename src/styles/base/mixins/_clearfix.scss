@@ -1,0 +1,10 @@
+@mixin clearfix {
+	&:before,
+	&:after {
+		content: $empty;
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}

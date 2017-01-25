@@ -1,0 +1,170 @@
+// Menus. For Header and Banner see header.scss
+.main-navigation.navbar-right {
+	margin-right: 0;
+}
+
+//main menu
+.main-navigation {
+	li.menu-item {
+		a {
+			color: $color-secondary;
+			font-weight: $body-font-weight-bold;
+			&:hover, &:focus {
+				color: $color-body-bg;
+				text-decoration: none;
+			}
+		}	
+		margin: 10px 10px 0;
+		&.current-menu-item, &.current-page-ancestor {
+			a {
+				color: $color-body-bg;
+			}
+		}
+		a.button {
+			margin-left: 10px;
+		}
+	}
+}
+
+//Provider area main menu
+.provider-area .main-navigation {
+	.menu {
+		li.menu-item {
+			a {
+				color: $color-provider-secondary;
+				&:hover, &:focus {
+					color: $color-body-bg;
+				}
+			}	
+			&.current-menu-item, &.current-page-ancestor {
+				a {
+					color: $color-body-bg;
+				}
+			}
+		}
+	}	
+}
+
+//TODO: Compile into %menu then extend
+@media #{$medium-down} {
+	#site-navigation {
+		padding-right: 0;
+	}
+	.main-navigation {
+		ul {
+			clear: both;
+			li.menu-item  {
+				float: none;
+    			margin: 0;
+    			padding: 0;
+				a {
+					padding: 10px;
+					background-color: #252525;
+					color: $color-white;
+				}	
+				&.current-menu-item {
+					a {
+						color: $color-primary;	
+					}
+				}
+				&:first-child {
+					border-top: 1px solid $color-white;	
+				}
+			}
+			li {
+				border-bottom: 1px solid $color-white;
+				float: none;
+				padding: 0;
+				a {
+					&.button-light {
+						width: auto;
+						background-color: #252525;
+						border: none;
+						padding-lefT: 10px;
+					}				
+				}
+			}
+		}
+	}	
+	.provider-area .main-navigation {
+		.menu {
+			li.menu-item  {
+				float: none;
+				border-bottom: 1px solid white;
+    			margin: 0;
+				a {
+					color: $color-white;
+					&.button-light {
+						width: auto;
+					}
+					&:hover, &:focus {
+
+					}
+				}	
+				&.current-menu-item {
+					a {
+						color: $color-primary;	
+					}
+				}
+			}
+			li {
+				float: none;
+				a {
+					padding: 10px;
+					background-color: #252525;
+					&.button-orange {
+						color: $color-white;
+						width: auto;
+						background-color: #252525;
+						border: none;
+					}				
+				}
+			}
+		}
+	}	
+	.navbar-toggle {
+		margin-top: 0;
+		margin-right: 5px;
+		.icon-bar {
+			background-color: $color-white;
+		}
+	}
+}
+
+@media #{$medium-down} {
+     /*-- Show Hamburger Menu --*/
+     .navbar-right {
+    	float: none !important;
+    	margin-right: 0;
+	}
+     .navbar-collapse.collapse
+     {
+          display: none !important;
+     }
+     .navbar-collapse.in
+     {
+          display: block !important;
+     }
+     .navbar-toggle
+     {
+          display: inline-block !important;
+          width: auto;
+          padding-right: 15px;
+     }
+	.menu-toggle,
+	.main-navigation.toggled .nav-menu {
+		display: block;
+	}
+	.site-title {
+		padding-bottom: 10px;
+	}
+	.main-navigation ul {
+		display: none;
+	}
+}
+
+@media #{$small-down} {
+	.site-title {
+		padding-bottom: 0px;
+	}	
+}

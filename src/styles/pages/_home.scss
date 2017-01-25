@@ -1,0 +1,32 @@
+@media #{$small-down} {
+	.home #primary {
+		text-align: center;
+	}
+}
+#explore-target {
+	padding-top: 25px;
+}
+
+.explore-wrap {
+	margin: 20px 0 0;	
+	a.explore-button {
+		display: inline-block;
+		color: $color-secondary;
+		text-decoration: none;
+		span {
+			display: block;
+			&.glyphicon {
+				font-size: 10px;
+			}
+		}
+		&:hover {
+			color: $color-primary;
+		}
+	}	
+}
+
+@media #{$medium-down} {
+	.explore-wrap {
+		display: none;
+	}
+}
