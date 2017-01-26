@@ -3,6 +3,7 @@
 ### What is this repository for? ###
 
 * Quick summary
+
 Used as a starting point for projects that you want to use SASS with Gulp in. 
 
 * Version 1.0
