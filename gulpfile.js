@@ -11,6 +11,7 @@ var imagemin = require('gulp-imagemin');
 var todo = require('gulp-todo');  
 var stripDebug = require('gulp-strip-debug');
 var browserSync = require('browser-sync').create();
+var plumber = require('gulp-plumber');
 
 var base = {
  public: 'public/',
