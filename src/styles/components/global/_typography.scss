@@ -81,7 +81,7 @@ strong {
 	font-weight: $body-font-weight-bold;
 }
 
-a, .bp_activity .activity-inner a {
+a {
 	color: $color-primary;
 	text-decoration: underline;
 	font-weight: $body-font-weight-bold;
@@ -123,9 +123,4 @@ a.reset {
 	&:hover {
 		color: $color-textdefault;
 	}
-}
-
-//revert bold links in these areas:
-.bp_activity a, .crumbs a, .item-list-tabs a {
-	font-weight: $body-font-weight-normal;
 }
