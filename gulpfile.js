@@ -79,9 +79,16 @@ gulp.task('styles', function () {
 
 gulp.task('svg', function() {
   return gulp.src(paths.svg + '/original/*.svg')
-  .pipe(imagemin({
-    progressive: true,
-    svgoPlugins: [ {removeViewBox:false}, {removeUselessStrokeAndFill:false} ]
+  .pipe(svgmin(function getOptions (file) {
+      var prefix = path.basename(file.relative, path.extname(file.relative));
+      return {
+          plugins: [{
+              cleanupIDs: {
+                  prefix: prefix + '-',
+                  minify: true
+              }
+          }]
+      }
   }))
   .pipe(gulp.dest(paths.svg + '/'));
 });
