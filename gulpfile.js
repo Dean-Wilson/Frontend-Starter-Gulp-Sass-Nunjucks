@@ -44,6 +44,7 @@ gulp.task('serve', ['styles','nunjucks','scripts','fonts','images','svg'], funct
   gulp.watch(paths.styles, ['styles']).on('change', function(event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
+  gulp.watch(paths.html,['nunjucks-watch']);
   gulp.watch(paths.allScripts,['scripts']);
   gulp.watch(paths.images,['images']);
   gulp.watch(paths.fonts,['fonts']);
@@ -99,7 +100,13 @@ gulp.task('fonts', function() {
     .pipe(gulp.dest(base.public + '/styles/fonts'));
 });
 
-gulp.task('nunjucks', function() {
+//this is to make sure the reload occurs AFTER the nunjucks task
+gulp.task('nunjucks-watch', ['nunjucks'], function (done) {
+    browserSync.reload();
+    done();
+});
+
+gulp.task('nunjucks', function(done) {
   // Gets .html and .nunjucks files in slides folder
   return gulp.src(base.source + '/slides/**/*.+(html|nunjucks)')
   .pipe(plumber())

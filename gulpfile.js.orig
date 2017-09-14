@@ -28,20 +28,12 @@ var paths = {
  vendorScripts: ['src/scripts/vendor/*'],
  images: ['src/images/**/*'],
  fonts: ['src/fonts/*'],
-<<<<<<< HEAD
- html: ['craft/templates/*.html']
-};
-
-//run default dev tasks here
-gulp.task('serve', ['styles','scripts','fonts','images','todo'], function(){
-=======
  svg: ['src/templates/partials/svg'],
  html: ['src/**/*.nunjucks']
 };
 
 //run default dev tasks here
 gulp.task('serve', ['styles','nunjucks','scripts','fonts','images','svg'], function(){
->>>>>>> 969cc85... STARTER - svg compression (to use inline)
   browserSync.init({
       proxy: "ku.dev",
       open: false,
@@ -52,23 +44,26 @@ gulp.task('serve', ['styles','nunjucks','scripts','fonts','images','svg'], funct
   gulp.watch(paths.styles, ['styles']).on('change', function(event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   });
+<<<<<<< HEAD
+=======
+  gulp.watch(paths.html,['nunjucks-watch']);
+>>>>>>> 86a6e0c... STARTER - Browser reload AFTER nunjucks task is complete
   gulp.watch(paths.allScripts,['scripts']);
   gulp.watch(paths.images,['images']);
   gulp.watch(paths.fonts,['fonts']);
-<<<<<<< HEAD
-  gulp.watch(paths.html,['todo']).on('change', browserSync.reload);
+  gulp.watch(paths.svg + '/original/*',['svg']);
+  //gulp.watch(paths.html,['todo']).on('change', browserSync.reload);
 });
 
+<<<<<<< HEAD
 //To Do task: generate a todo.md from all files in the paths.html folder
 gulp.task('todo', function() {
     gulp.src(paths.html)
         .pipe(todo())
         .pipe(gulp.dest(base.source))
-=======
-  gulp.watch(paths.svg + '/original/*',['svg']);
-  //gulp.watch(paths.html,['todo']).on('change', browserSync.reload);
->>>>>>> 969cc85... STARTER - svg compression (to use inline)
 });
+=======
+>>>>>>> 86a6e0c... STARTER - Browser reload AFTER nunjucks task is complete
 
 //Styles Task
 var sassOptions = {
@@ -91,9 +86,16 @@ gulp.task('styles', function () {
 
 gulp.task('svg', function() {
   return gulp.src(paths.svg + '/original/*.svg')
-  .pipe(imagemin({
-    progressive: true,
-    svgoPlugins: [ {removeViewBox:false}, {removeUselessStrokeAndFill:false} ]
+  .pipe(svgmin(function getOptions (file) {
+      var prefix = path.basename(file.relative, path.extname(file.relative));
+      return {
+          plugins: [{
+              cleanupIDs: {
+                  prefix: prefix + '-',
+                  minify: true
+              }
+          }]
+      }
   }))
   .pipe(gulp.dest(paths.svg + '/'));
 });
@@ -101,12 +103,16 @@ gulp.task('svg', function() {
 //Fonts Task
 gulp.task('fonts', function() {
   gulp.src('src/fonts/*')
-  .pipe(gulp.dest(base.public + '/styles/fonts'));
+    .pipe(gulp.dest(base.public + '/styles/fonts'));
 });
 
-<<<<<<< HEAD
-=======
-gulp.task('nunjucks', function() {
+//this is to make sure the reload occurs AFTER the nunjucks task
+gulp.task('nunjucks-watch', ['nunjucks'], function (done) {
+    browserSync.reload();
+    done();
+});
+
+gulp.task('nunjucks', function(done) {
   // Gets .html and .nunjucks files in slides folder
   return gulp.src(base.source + '/slides/**/*.+(html|nunjucks)')
   .pipe(plumber())
@@ -119,7 +125,6 @@ gulp.task('nunjucks', function() {
   .pipe(browserSync.stream());
 });
 
->>>>>>> 969cc85... STARTER - svg compression (to use inline)
 //Scripts task: Concatenating, renaming Script files
 gulp.task('scripts', function() {
     gulp.src('src/scripts/*')
