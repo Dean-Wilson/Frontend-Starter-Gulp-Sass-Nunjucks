@@ -4,7 +4,7 @@
 
 * Quick summary
 
-Used as a starting point for projects that you want to use SASS with Gulp in. 
+Used as a starting point for projects that you want to use SASS with Gulp in. Uses Nunjucks for templating. 
 
 * Version 1.0
 
